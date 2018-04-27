@@ -1,0 +1,10 @@
+.slick-arrow::before {
+  color: $brand-dark;
+}
+
+.slick-initialized .slick-slide {
+  padding: 10px;
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -1,0 +1,13 @@
+<header class="site-header" role="banner">
+    <div class="wrapper">
+        <p>
+            {{ site.address }}<br/>
+            {% for phone in site.phones %}
+                <a href="tel:{{ phone }}">{{ phone }}</a>
+            {% endfor %}
+        </p>
+        {% assign default_paths = site.pages | map: "path" %}
+        {% assign page_paths = site.header_pages | default: default_paths %}
+        <a class="site-title" rel="company" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    </div>
+</header>

@@ -1,0 +1,29 @@
+<footer class="site-footer h-card">
+    <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+    <div class="wrapper">
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="u-name">
+                        ООО "{{ site.title | escape }}"
+                    </li>
+                    <li>Контакты: </li>
+                    {% if site.email %}
+                    <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+                    {% endif %}
+                    {% for phone in site.phones %}
+                    <li><a class="u-phone" href="tel:{{ phone }}">{{ phone }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+                <div id="addressMap" style="width:100%; height:200px"></div>
+            </div>
+        </div>
+
+    </div>
+
+</footer>

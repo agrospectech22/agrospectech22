@@ -1,0 +1,25 @@
+<div class="tractors-imgs">
+    <div class="wrapper">
+        {% assign imgs1 = "/assets/imgs/1.jpeg, /assets/imgs/2.jpeg, /assets/imgs/3.jpeg, " %}
+        {% assign imgs2 = "/assets/imgs/4.jpeg, /assets/imgs/5.jpeg, /assets/imgs/6.jpeg, " %}
+        {% assign imgs3 = "/assets/imgs/7.jpeg, /assets/imgs/8.jpeg, /assets/imgs/9.jpeg, " %}
+        {% assign imgs4 = "/assets/imgs/10.jpeg, /assets/imgs/11.jpeg, /assets/imgs/12.jpeg" %}
+
+        {% assign imgs = imgs1 | append: imgs2 | append: imgs3 | append: imgs4 | split: ", " %}
+
+        <div class="tractors">
+            {% for img in imgs %}
+            <div class="tractor-img">
+                <img src="{{ site.url | append: img }}">
+            </div>
+            {% endfor %}
+        </div>
+        <div class="tractors-nav">
+            {% for img in imgs %}
+            <div class="tractor-img">
+                <img src="{{ site.url | append: img }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

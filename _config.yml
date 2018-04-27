@@ -1,0 +1,25 @@
+baseurl: ""
+url: "https://www.agrospectech.ru"
+lang: ru_RU
+title: Агроспецтехника
+email: pspleg@rambler.ru
+address: "656056, г. Барнаул, ул. Льва Толстого 9, офис 14"
+phones: ["+7 (983) 172-31-39", "+7 (909) 501-82-36"]
+inn: 2224156590
+kpp: 222401001
+ogrn: 1122224006167
+settlement_account: 40702810918000001680 # расчетный счет
+bank_name: "ОАО «Россельхозбанк»"
+bank_bik: 040173733
+bank_correspondent_account: 30101810100000000733
+director: "Павлов Станислав Петрович"
+description: >
+  Про ремонт тракторов
+
+google_analytics: 123
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
