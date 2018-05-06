@@ -3,6 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>{{ site.title }}</title>
+
     <!-- Open Graph -->
     <meta property="og:title" content="{{ site.title }}" />
     <meta property="og:description" content="{{ site.description }}">
@@ -16,41 +18,18 @@
     {% if jekyll.environment == 'production' and site.google_analytics %}
     {% include google-analytics.html %}
     {% endif %}
-    <script type="text/javascript" src="https://maps.api.2gis.ru/1.0"></script>
-    <script type="text/javascript">
-        // Создаем обработчик загрузки страницы:
-        DG.autoload(function() {
-            // Создаем объект карты, связанный с контейнером:
-            var myMap = new DG.Map('addressMap');
-            // Устанавливаем центр карты, и коэффициент масштабирования:
-            myMap.setCenter(new DG.GeoPoint(83.79825, 53.331951), 15);
-            // Добавляем элемент управления коэффициентом масштабирования:
-            myMap.controls.add(new DG.Controls.Zoom());
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 
-            // Создаем балун:
-            var myBalloon = new DG.Balloons.Common({
-                // Местоположение на которое указывает балун:
-                geoPoint: new DG.GeoPoint(83.79825, 53.331951),
-                // Устанавливаем текст, который будет отображатся при открытии балуна:
-                contentHtml: '{{ site.address }}'
+    <script type="text/javascript">
+        var map;
+
+        DG.then(function () {
+            map = DG.map('addressMap', {
+                center: [53.331951, 83.79825],
+                zoom: 15
             });
-            // Создаем маркер:
-            var myMarker = new DG.Markers.Common({
-                // Местоположение на которое указывает маркер:
-                geoPoint: new DG.GeoPoint(83.79825, 53.331951),
-                // Функция, вызываемая при клике по маркеру
-                clickCallback: function() {
-                    if (! myMap.balloons.getDefaultGroup().contains(myBalloon)) {
-                        // Если балун еще не был добавлен на карту, добавляем его:
-                        myMap.balloons.add(myBalloon);
-                    } else {
-                        // Показываем уже ранее добавленный на карту балун
-                        myBalloon.show();
-                    }
-                }
-            });
-            // Добавить маркер на карту:
-            myMap.markers.add(myMarker);
+
+            DG.marker([53.331951, 83.79825]).addTo(map).bindPopup('{{ site.address }}');
         });
     </script>
 </head>
